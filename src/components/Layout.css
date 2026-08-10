@@ -21,6 +21,10 @@
   background: linear-gradient(135deg, #050d1a 0%, #0a1628 50%, #071020 100%);
 }
 
+.layout-bg-video::-webkit-media-controls {
+  display: none !important;
+}
+
 .layout-bg-poster {
   width: 100%;
   height: 100%;

@@ -14,6 +14,16 @@ export const Layout: React.FC = () => {
     setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     mq.addEventListener('change', handler);
+
+    // Force Safari to autoplay the background video
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        // If autoplay is strictly blocked (e.g. low power mode), it's fine, it will show the poster gradient
+      });
+    }
+
     return () => mq.removeEventListener('change', handler);
   }, []);
 
