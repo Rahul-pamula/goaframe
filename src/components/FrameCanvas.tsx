@@ -72,7 +72,7 @@ export const FrameCanvas: React.FC<FrameCanvasProps> = ({
   onCropComplete,
   cropPixels = null
 }) => {
-  const bgImage = template === 'sunset' ? '/frames/sunset.png' : '/frames/wave.png';
+  const bgImage = template === 'sunset' ? `${import.meta.env.BASE_URL}frames/sunset.png` : `${import.meta.env.BASE_URL}frames/wave.png`;
   const cfg = FRAME_CONFIG;
 
   // Portrait circle geometry (CSS %)

@@ -39,7 +39,7 @@ export const generatePoster = async (state: any): Promise<Blob> => {
   if (!ctx) throw new Error('Could not get 2D context');
 
   // ── LAYER 1: Background Artwork ───────────────────────────
-  const bgUrl = state.template === 'sunset' ? '/frames/sunset.png' : '/frames/wave.png';
+  const bgUrl = state.template === 'sunset' ? `${import.meta.env.BASE_URL}frames/sunset.png` : `${import.meta.env.BASE_URL}frames/wave.png`;
   const bgImg = await loadImage(bgUrl);
   ctx.drawImage(bgImg, 0, 0, W, H);
 

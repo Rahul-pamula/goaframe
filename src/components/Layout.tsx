@@ -25,7 +25,7 @@ export const Layout: React.FC = () => {
           <video
             ref={videoRef}
             className="layout-bg-video"
-            src="/video/ocean-sunset-tiny.mp4"
+            src={`${import.meta.env.BASE_URL}video/ocean-sunset-tiny.mp4`}
             autoPlay
             muted
             loop

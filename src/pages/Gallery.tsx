@@ -15,13 +15,13 @@ const FRAMES: FrameData[] = [
     id: 'sunset',
     name: 'SUNSET',
     description: 'Above the Horizon',
-    src: '/frames/sunset.png'
+    src: `${import.meta.env.BASE_URL}frames/sunset.png`
   },
   {
     id: 'wave',
     name: 'WAVE',
     description: 'Into the Tide',
-    src: '/frames/wave.png'
+    src: `${import.meta.env.BASE_URL}frames/wave.png`
   }
 ];
 
