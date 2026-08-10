@@ -1,0 +1,300 @@
+.about-page {
+  /* Transparent to let the global ocean video show through */
+  background: transparent;
+  color: #fffdf0; /* Warm cream text */
+  min-height: 100vh;
+  margin-top: -80px; /* Offset the header padding to cover the screen */
+  padding-top: 120px; /* Re-add padding inside */
+  padding-bottom: 100px;
+}
+
+/* ── Typography Utility ── */
+.mono-text {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 253, 240, 0.7);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5cqw, 3.5rem);
+  font-weight: 500;
+  margin-bottom: var(--spacing-lg);
+  color: #fffdf0;
+}
+
+.section-kicker {
+  color: #ffd700;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ── SECTION A: HERO ── */
+.about-hero {
+  padding: var(--spacing-lg) 0 80px;
+}
+
+.about-hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.about-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 10vw, 7rem);
+  line-height: 1.1;
+  font-weight: 700;
+  color: #fffdf0;
+  letter-spacing: -0.02em;
+}
+
+/* ── SECTION B: PHILOSOPHY ── */
+.about-philosophy {
+  padding: 60px 0;
+  border-top: 1px solid rgba(255, 253, 240, 0.1);
+}
+
+.philosophy-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #fffdf0; /* Plain text */
+  margin-bottom: var(--spacing-md);
+}
+
+.philosophy-quote {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: var(--spacing-lg);
+  max-width: 800px;
+}
+
+.philosophy-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 600px;
+  color: rgba(255, 253, 240, 0.85);
+}
+
+.philosophy-text p {
+  margin-bottom: var(--spacing-md);
+}
+
+.philosophy-list {
+  list-style: none;
+  margin-top: var(--spacing-md);
+}
+
+.philosophy-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+}
+
+.philosophy-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #ffd700;
+}
+
+/* ── SECTION C: FAQ ── */
+.about-faq {
+  padding: 60px 0;
+}
+
+.accordion {
+  border-top: 1px solid rgba(255, 253, 240, 0.1);
+}
+
+.accordion-item {
+  border-bottom: 1px solid rgba(255, 253, 240, 0.1);
+}
+
+.accordion-header {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  color: #fffdf0;
+  padding: 24px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.accordion-icon {
+  color: #ff3366;
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.open .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-item.open .accordion-body {
+  max-height: 500px;
+}
+
+.accordion-content {
+  padding-bottom: 24px;
+  color: rgba(255, 253, 240, 0.8);
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* ── SECTION D: TIMELINE ── */
+.about-roadmap {
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.timeline-container {
+  margin-top: 40px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 40px var(--container-padding);
+  scrollbar-width: none; /* Hide scrollbar for cleaner look */
+}
+.timeline-container::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-track {
+  display: flex;
+  gap: 32px;
+  min-width: max-content;
+  position: relative;
+  padding-top: 20px;
+}
+
+/* The connecting line on desktop */
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 253, 240, 0.1);
+  z-index: 0;
+}
+
+.timeline-card {
+  width: 320px;
+  background: rgba(10, 42, 27, 0.6); /* Translucent slightly lighter green */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 253, 240, 0.1);
+  padding: 32px 24px;
+  border-radius: var(--radius-lg);
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-card.active {
+  border-color: #ffd700;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #051a11;
+  border: 2px solid rgba(255, 253, 240, 0.3);
+  position: absolute;
+  top: -28px;
+  left: 32px;
+}
+
+.timeline-card.active .timeline-dot {
+  background: #ffd700;
+  border-color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #ff3366;
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+
+.timeline-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  color: #fffdf0;
+}
+
+.timeline-card-desc {
+  font-size: 0.95rem;
+  color: rgba(255, 253, 240, 0.7);
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.timeline-status {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.timeline-status.running {
+  background: rgba(255, 215, 0, 0.15);
+  color: #ffd700;
+}
+
+.timeline-status.to-be-started {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 253, 240, 0.5);
+}
+
+/* Mobile Vertical Timeline */
+@media (max-width: 900px) {
+  .timeline-container {
+    padding: 20px var(--margin-mobile);
+    overflow-x: visible;
+  }
+  
+  .timeline-track {
+    flex-direction: column;
+    min-width: 100%;
+    padding-left: 20px;
+  }
+  
+  .timeline-track::before {
+    top: 0;
+    bottom: 0;
+    left: 28px;
+    height: auto;
+    width: 2px;
+  }
+  
+  .timeline-card {
+    width: 100%;
+  }
+  
+  .timeline-dot {
+    top: 32px;
+    left: -28px; /* Offset to align with vertical line */
+  }
+}

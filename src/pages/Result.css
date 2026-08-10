@@ -1,0 +1,116 @@
+.result-page {
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+}
+
+.result-layout {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+}
+
+/* Frame preview column */
+.result-frame-col {
+  flex: 0 0 auto;
+  width: min(420px, 100%);
+}
+
+/* Info + actions column */
+.result-info-col {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Identity card */
+.result-identity-card {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.result-name {
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #fff;
+  line-height: 1;
+  margin: 0;
+}
+
+.result-role {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(200, 230, 240, 0.9);
+}
+
+.result-id-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid rgba(77, 217, 240, 0.35);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  background: rgba(0, 30, 50, 0.4);
+  color: var(--on-surface-variant);
+  width: fit-content;
+}
+
+.result-email {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(214, 227, 255, 0.6);
+}
+
+/* Action buttons */
+.result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.result-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+}
+
+.result-secondary-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.spin {
+  display: inline-block;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Mobile: stack columns */
+@media (max-width: 640px) {
+  .result-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+  .result-frame-col {
+    width: 100%;
+  }
+}

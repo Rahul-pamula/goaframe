@@ -1,0 +1,88 @@
+/* Landing page — video BG is now global (in Layout), just hero positioning here */
+.landing-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.landing-hero {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.hero-kicker {
+  color: var(--primary);
+  letter-spacing: 0.2em;
+  margin-bottom: var(--spacing-sm);
+  display: block;
+}
+
+.hero-title {
+  color: #ffffff;
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 0 4px 32px rgba(0,0,0,0.7), 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero-subtitle {
+  color: rgba(214, 227, 255, 0.85);
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: var(--spacing-lg);
+}
+
+.landing-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-cta {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.cta-icon {
+  font-size: 18px;
+  transition: transform 0.4s ease;
+}
+
+.hero-cta:hover .cta-icon {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-kicker {
+    animation: fadeInDown 1s ease-out forwards;
+  }
+  .hero-title {
+    animation: zoomInSubtle 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+  .hero-subtitle {
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+  .landing-actions {
+    animation: fadeInUp 1s ease-out 0.4s forwards;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoomInSubtle {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}

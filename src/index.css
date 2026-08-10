@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Playfair+Display:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+  /* Colors */
+  --surface: #041329;
+  --surface-dim: #041329;
+  --surface-bright: #2c3951;
+  --surface-container-lowest: #010e24;
+  --surface-container-low: #0d1c32;
+  --surface-container: #112036;
+  --surface-container-high: #1c2a41;
+  --surface-container-highest: #27354d;
+  --on-surface: #d6e3ff;
+  --on-surface-variant: #ddc1b3;
+  --outline: #9f8d84;
+  --outline-variant: #52443c;
+  --surface-tint: #ffb68d;
+  
+  --primary: #ffdbc9;
+  --on-primary: #502406;
+  --primary-container: #ffb68d;
+  --on-primary-container: #7a4525;
+  --inverse-primary: #88512f;
+  
+  --secondary: #9ed1bd;
+  --on-secondary: #00382a;
+  --secondary-container: #1d4f40;
+  --on-secondary-container: #8dc0ac;
+
+  /* Typography Families */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Manrope', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-brush: 'Kaushan Script', cursive;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Typography Scales */
+  --text-display-lg: 64px;
+  --text-display-lg-mobile: 40px;
+  --text-headline-md: 32px;
+  --text-headline-sm: 24px;
+  --text-body-lg: 18px;
+  --text-body-md: 16px;
+  --text-label-caps: 12px;
+
+  /* Spacing */
+  --spacing-unit: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 32px;
+  --spacing-lg: 64px;
+  --gutter: 24px;
+  --container-padding: 40px;
+  --margin-mobile: 20px;
+
+  /* Radii */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: transparent; /* video bg in Layout handles this */
+  color: var(--on-surface);
+  font-family: var(--font-sans);
+  font-size: var(--text-body-md);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  margin-bottom: var(--spacing-sm);
+  font-weight: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+/* Utilities */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Typography Classes */
+.text-display-lg {
+  font-size: var(--text-display-lg-mobile);
+  line-height: 1.2;
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .text-display-lg {
+    font-size: var(--text-display-lg);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+}
+
+.text-headline-md {
+  font-size: var(--text-headline-md);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.text-headline-sm {
+  font-size: var(--text-headline-sm);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.text-label-caps {
+  font-family: var(--font-sans);
+  font-size: var(--text-label-caps);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1152px;
+  margin: 0 auto;
+  padding: 0 var(--margin-mobile);
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 var(--container-padding);
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Glassmorphism — stronger backdrop for video overlay */
+.glass-panel {
+  background: rgba(4, 12, 28, 0.55);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(214, 227, 255, 0.10);
+  border-radius: var(--radius-xl);
+}
+
+/* Page card — wraps inner page content so it's readable over video */
+.page-card {
+  background: rgba(4, 12, 28, 0.60);
+  backdrop-filter: blur(20px) saturate(1.3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.3);
+  border: 1px solid rgba(214, 227, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  width: 100%;
+  max-width: 1100px;
+}

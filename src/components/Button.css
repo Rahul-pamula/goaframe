@@ -1,0 +1,33 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-unit);
+  padding: 16px 32px;
+  border-radius: var(--radius-full);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--on-primary);
+  box-shadow: 0 4px 12px rgba(255, 219, 201, 0.2);
+}
+.btn-primary:hover {
+  background-color: var(--primary-container);
+  transform: scale(0.98);
+}
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--on-surface);
+  border: 1px solid rgba(159, 141, 132, 0.2);
+}
+.btn-ghost:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(159, 141, 132, 0.4);
+}

@@ -1,0 +1,211 @@
+/* ── Frame Container ─────────────────────────────────────────── */
+.frame-canvas-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background-color: #040a18;
+  container-type: inline-size;
+}
+
+/* ── Layer 1: Background Artwork ─────────────────────────────── */
+.frame-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Layer 2: Portrait Ring ──────────────────────────────────── */
+.frame-portrait-ring {
+  position: absolute;
+  z-index: 2;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 3px rgba(255, 255, 255, 0.3),
+    0 0 32px rgba(0, 0, 0, 0.4);
+}
+
+.frame-photo-static {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.frame-photo-cropper-wrapper {
+  position: absolute;
+  inset: 0;
+}
+
+.frame-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, rgba(0,0,0,0.25) 100%);
+  border-radius: 50%;
+}
+
+/* ── Layer 3: Identity Scrim ─────────────────────────── */
+/*
+ * New clean artwork has NO baked-in text. We just need a very
+ * subtle gradient at the bottom so dynamic text stays legible
+ * against the sandy/scene background. The artwork must still show through.
+ */
+.frame-identity-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0)    0%,
+    rgba(0, 0, 0, 0.30) 40%,
+    rgba(0, 0, 0, 0.55) 75%,
+    rgba(0, 0, 0, 0.70) 100%
+  );
+  pointer-events: none;
+}
+
+/* ── Layer 4: Dynamic Identity Text ─────────────────────────── */
+.frame-identity-layer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* top and bottom are set via inline styles from FRAME_CONFIG */
+  z-index: 4;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.frame-identity-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* ── Theme Variables ── */
+.theme-sunset {
+  --text-primary: #fffdf0; /* Warm ivory */
+  --text-accent: #ffb347;  /* Amber */
+  --border-color: rgba(255, 179, 71, 0.6);
+  --text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 2px 2px 0px rgba(0,0,0,0.6);
+}
+.theme-wave {
+  --text-primary: #f0f8ff; /* Cool white */
+  --text-accent: #00ced1;  /* Cyan */
+  --border-color: rgba(0, 206, 209, 0.6);
+  --text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 2px 2px 0px rgba(0,0,0,0.6);
+}
+
+/* ── NAME: Kaushan Script, very large, expressive ── */
+.frame-text-name {
+  font-family: var(--font-brush);
+  font-size: clamp(2.5rem, 14cqw, 7rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text-primary);
+  text-shadow: var(--text-shadow);
+  word-break: break-word;
+  margin-bottom: 1.5cqw;
+  max-width: 100%;
+}
+
+/* ── ROLE: Montserrat, bold, uppercase ── */
+.frame-text-role-badge {
+  font-family: var(--font-montserrat);
+  font-size: clamp(0.7rem, 3.5cqw, 1.5rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  margin-bottom: 2cqw;
+  max-width: 100%;
+}
+
+.frame-text-role-badge::before,
+.frame-text-role-badge::after {
+  content: '';
+  display: inline-block;
+  height: 2px;
+  width: clamp(10px, 4cqw, 30px);
+  background: var(--border-color);
+  flex-shrink: 0;
+}
+
+/* ── BUILDER ID: Space Mono, bordered badge ── */
+.frame-text-id-badge {
+  font-family: var(--font-mono);
+  font-size: clamp(0.6rem, 2.5cqw, 1.1rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  border: 1.5px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.4em 0.8em;
+  background: rgba(0, 10, 20, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  margin-bottom: 2.5cqw;
+  max-width: 100%;
+}
+
+.frame-text-id-badge .id-label {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.frame-text-id-badge .id-value {
+  color: var(--text-accent);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* ── EMAIL ── */
+.frame-text-email {
+  font-family: var(--font-inter);
+  font-size: clamp(0.5rem, 2cqw, 0.9rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+  margin-bottom: 4cqw;
+  max-width: 100%;
+  word-break: break-all;
+}
+
+.frame-text-email .email-icon {
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+.frame-text-footer {
+  font-family: var(--font-inter);
+  font-size: clamp(0.45rem, 1.8cqw, 0.8rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}

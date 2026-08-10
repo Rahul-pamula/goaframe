@@ -1,0 +1,61 @@
+.layout-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ── Global Video Background ─────────────────────────── */
+.layout-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.layout-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.layout-bg-poster {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #050d1a 0%, #0a1628 50%, #071020 100%);
+}
+
+/* ── Overlay Transitions ── */
+.layout-bg-overlay {
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.8s ease;
+}
+
+/* Landing page overlay — lighter so hero text pops */
+.overlay-landing {
+  background: linear-gradient(
+    to bottom,
+    rgba(3, 8, 20, 0.45) 0%,
+    rgba(3, 8, 20, 0.30) 40%,
+    rgba(3, 8, 20, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+/* Inner pages overlay — darker so glass panels stand out */
+.overlay-inner {
+  background: rgba(3, 8, 20, 0.65);
+  z-index: 2;
+}
+
+/* ── Main Content ───────────────────────────────────────── */
+.main-content {
+  flex: 1;
+  padding-top: 80px; /* header height */
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
